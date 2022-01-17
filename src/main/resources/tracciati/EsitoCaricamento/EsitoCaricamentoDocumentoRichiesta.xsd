@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://esitocaricamentodocumentorichiesta.xsd.fse.ini.finanze.it" xmlns:td="http://tipodatiesitocaricamentodocumento.xsd.fse.ini.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://esitocaricamentodocumentorichiesta.xsd.fse.ini.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodatiesitocaricamentodocumento.xsd.fse.ini.finanze.it" schemaLocation="TipiDatiEsitoCaricamentoDocumento.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="EsitoCaricamentoDocumentoRichiesta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IdentificativoUtente" type="td:stringTypeMax16">
+					<xs:annotation>
+						<xs:documentation>Id utente</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pinCode" type="td:stringTypeMax256" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>PinCode utente SistemaTS</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IdentificativoOrganizzazione" type="td:stringType3">
+					<xs:annotation>
+						<xs:documentation>Codifica Tabella 5.4-3 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="StrutturaUtente" type="td:stringTypeMax20" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codifica HSP.11 - HSP.11bis - STS.11 - RIA.11</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RuoloUtente" type="td:stringTypeMax3" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tabella 5.4-1 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IdentificativiTemporaneiDocumenti" type="td:stringTypeMax256" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Identificativo temporaneo del set di metadati</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DataRicercaDA" type="td:dataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Criterio di ricerca data DA, nel formato yyyymmddHH24MISS, si basa sulla data di caricamento del documento</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DataRicercaA" type="td:dataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Criterio di ricerca data A, nel formato yyyymmddHH24MISS, si basa sulla data di caricamento del documento</xs:documentation>
+					</xs:annotation>
+				</xs:element>	
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

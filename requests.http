@@ -1,0 +1,129 @@
+#********************************************************
+# Taken from: https://github.com/HL7/C-CDA-Examples/blob/master/Documents/Diagnostic%20Imaging%20Report/Diagnostic_Imaging_Report.xml
+# Modified by Lorenzo Pappalardo
+#********************************************************
+# Disclaimer: This sample file contains representative data elements to represent a Diagnostic Imaging Report. 
+# The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
+# To illustrate as many data elements as possible, the clinical scenario may not be plausible. 
+# The data in this sample file is not intended to represent real patients, people or clinical events. 
+# This sample is designed to be used in conjunction with the C-CDA Clinical Notes Implementation Guide.
+#********************************************************
+
+### Add user
+POST http://localhost:8080/user/add HTTP/1.1
+Content-Type: application/json
+
+{
+  "cf": "PROVAX00X00X000Y",
+  "password": "Salve123",
+  "pinCode": "LsQiYtf7FcpMYVKvf+51V6t1BSUk+E/dGOB2vmwNl0DhirZ8QzvTI2Ay04p6+t+eH+DjzkJpXrlEEZvKRz6wKVNOt7uYSQUYKBIFcbcEQJnqT7zTgtz7jV3BK+QaEphfKRsOP1Iejv+vKvJ/3te2xNMHPkNYZIAjxEQHftw9Swk=",
+  "identificativoOrganizzazione": "190",
+  "strutturaUtente": "206123456",
+  "ruoloUtente": "DRS"
+}
+
+### Get specific user
+GET http://localhost:8080/user?cf=PROVAX00X00X000Y HTTP/1.1
+
+### Get all users
+GET http://localhost:8080/users HTTP/1.1
+
+### Edit specific user
+POST http://localhost:8080/user/edit HTTP/1.1
+Content-Type: application/json
+
+{
+  "cf": "PROVAX00X00X000Y",
+  "password": "Salve123",
+  "pinCode": "LsQiYtf7FcpMYVKvf+51V6t1BSUk+E/dGOB2vmwNl0DhirZ8QzvTI2Ay04p6+t+eH+DjzkJpXrlEEZvKRz6wKVNOt7uYSQUYKBIFcbcEQJnqT7zTgtz7jV3BK+QaEphfKRsOP1Iejv+vKvJ/3te2xNMHPkNYZIAjxEQHftw9Swk=",
+  "identificativoOrganizzazione": "190",
+  "strutturaUtente": "206123456",
+  "ruoloUtente": "DRS"
+}
+
+### Delete specific user
+POST http://localhost:8080/user/delete?cf=PROVAX00X00X000Y HTTP/1.1
+
+### RicercaDocumenti - Get references
+GET http://localhost:8080/RicercaDocumenti HTTP/1.1
+Content-Type: application/json
+
+{
+  "contestoOperativo": "TREATMENT",
+  "identificativoAssistito": "TSTTTN71A01H501B",
+  "presaInCarico": "true",
+  "opzioniRisposta": "ObjectRef"
+}
+
+### RicercaDocumenti - Get metadata
+GET http://localhost:8080/RicercaDocumenti HTTP/1.1
+Content-Type: application/json
+
+{
+  "contestoOperativo": "TREATMENT",
+  "identificativoAssistito": "TSTTTN71A01H501B",
+  "presaInCarico": "true",
+  "identificativoDocumento": "urn:uuid:b77bd4ed-b64a-4d39-a8e9-87843ce40ba9"
+}
+
+### Recupero Documento
+GET http://localhost:8080/RecuperoDocumento HTTP/1.1
+Content-Type: application/json
+
+{
+  "metadato": {
+    "identificativoUnivocoDocumento": "urn:uuid:b77bd4ed-b64a-4d39-a8e9-87843ce40ba9",
+    "identificativoAssistito": "TSTTTN71A01H501B",
+    "identificativoOrgDoc": "2.16.840.1.113883.2.9.2.0",
+    "identificativoRepository": "2.16.840.1.113883.2.9.2.0.4.5.1",
+    "identificativoDocumento": "2.16.840.1.113883.2.9.4.3.8^1500A4005187621_PREFARM"
+  },
+  "contestoOperativo": "TREATMENT",
+  "presaInCarico": "true"
+}
+
+### Comunicazione Metadati
+POST http://localhost:8080/ComunicazioneMetadati HTTP/1.1
+Content-Type: application/json
+
+{
+  "contestoOperativo": "TREATMENT",
+  "identificativoAssistito": "TSTTTN71A01H501B",
+  "presaInCarico": "true",
+  "tipoAttivita": "CREATE",
+  "metadato": {
+    "tipologiaStrutturaProdDoc": "Territorio",
+    "tipoMime": "text/x-cda-r2+xml",
+    "livelloConfidenzialita": "N",
+    "tipologiaDocumentoAlto": "REF",
+    "tipologiaDocumentoMedio": "11502-2",
+    "tipologiaDocumentoBasso": "2.16.840.1.113883.2.9.10.1.1",
+    "dataValidazioneDocumento": "20190313170000",
+    "ruoloAutore": "DRS",
+    "istituzioneAutore": "190206123456",
+    "codiceFiscaleAutore": "PROVAX00X00X000Y",
+    "telecAutore": "prova@prova.it",
+    "assettoOrganizzativo": "AD_PSC100",
+    "tipoAttivitaClinica": "CON",
+    "dataInizioPrestazione": "20190313170000",
+    "dataFinePrestazione": "20190313170000",
+    "riferimentoDocPrescr": [
+      "1500A4005000011^^^&amp;2.16.840.1.113883.2.9.4.3.8&amp;ISO^urn:ihe:iti:xds:2013:order",
+      "1500A4005000000^^^&amp;2.16.840.1.113883.2.9.4.3.8&amp;ISO^urn:ihe:iti:xds:2013:order"
+    ]
+  },
+  "documento": null
+}
+
+### Esito Caricamento Documento
+GET http://localhost:8080/EsitoCaricamentoDocumento HTTP/1.1
+Content-Type: application/json
+
+{
+  "identificativiTemporaneiDocumenti": [
+    "TEMP_190_349029",
+    "TEMP_190_349027"
+  ],
+  "dataRicercaDA": "19800101000000",
+  "dataRicercaA": "20210101000000"
+}

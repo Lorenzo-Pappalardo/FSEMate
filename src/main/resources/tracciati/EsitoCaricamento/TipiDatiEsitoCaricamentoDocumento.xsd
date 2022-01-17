@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://tipodatiesitocaricamentodocumento.xsd.fse.ini.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tipodatiesitocaricamentodocumento.xsd.fse.ini.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="stringType1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringType3">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax2">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax3">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax4">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax5">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax6">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax9">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax10">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax12">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax15">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax16">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax20">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax30">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax50">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax64">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax256">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="14"/>
+			<xs:maxLength value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="codEsitoType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="fileType">
+		<xs:restriction base="xs:base64Binary">
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:complexType name="opzioniType">
+		<xs:sequence>
+			<xs:element name="chiave" type="stringTypeMax256" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Chiave del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="valore" type="stringTypeMax256" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Valore del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tipo" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tipologia del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="erroreType">
+		<xs:sequence>
+			<xs:element name="codEsito" type="codEsitoType"/>
+			<xs:element name="esito" type="stringTypeMax256"/>
+			<xs:element name="tipoErrore" type="stringTypeMax256" minOccurs="0"/>
+			<xs:element name="fonte" type="stringTypeMax256" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="elencoErroriType">
+		<xs:sequence>
+			<xs:element name="Errore" type="erroreType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="esitoCaricamentoDocumentoDocumentoType">
+		<xs:sequence>
+			<xs:element name="IdentificativoTemporaneoDocumento" type="stringTypeMax256">
+				<xs:annotation>
+					<xs:documentation>Identificativo temporaneo del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StatoElaborazione" type="stringTypeMax4">
+				<xs:annotation>
+					<xs:documentation>Indica lo stato di elaborazione del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificativoDocumento" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OID definitivo del documento, presente solo se il documento e' stato elaborato correttamente</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MotivazioneScarto" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indica la motivazione dello scarto nell'elaborazione del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

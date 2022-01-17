@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://ricercadocumentirichiesta.xsd.fse.ini.finanze.it" xmlns:td="http://tipodatiricercadocumenti.xsd.fse.ini.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ricercadocumentirichiesta.xsd.fse.ini.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://tipodatiricercadocumenti.xsd.fse.ini.finanze.it" schemaLocation="TipiDatiRicercaDocumenti.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:element name="RicercaDocumentiRichiesta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IdentificativoUtente" type="td:stringTypeMax16">
+					<xs:annotation>
+						<xs:documentation>Id utente</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pinCode" type="td:stringTypeMax256" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>PinCode utente SistemaTS</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IdentificativoOrganizzazione" type="td:stringType3">
+					<xs:annotation>
+						<xs:documentation>Codifica Tabella 5.4-3 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DescrizioneOrganizzazione" type="td:stringTypeMax30" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Descrizione Tabella 5.4-3 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="StrutturaUtente" type="td:stringTypeMax20" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codifica HSP.11 - HSP.11bis - STS.11 - RIA.11</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RuoloUtente" type="td:stringTypeMax3" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tabella 5.4-1 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ContestoOperativo" type="td:stringTypeMax15" minOccurs="0"> 
+					<xs:annotation>
+						<xs:documentation>Tabella 5.4-2 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TipoDocumento" type="td:stringTypeMax10" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tabella 2.18-1 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IdentificativoAssistito" type="td:stringTypeMax16">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale dell'assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PresaInCarico" type="td:stringTypeMax5" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tabella 5.4-4 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TipoAttivita" type="td:stringTypeMax6" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Tabella 5.4-5 di Affinity domain</xs:documentation>
+					</xs:annotation>
+				</xs:element>	
+				<xs:element name="ElencoCFAssistito" type="td:elencoCFAssistitoType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Elenco Identificativi assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>					
+				<xs:element name="IdentificativoAssistitoDoc" type="td:stringTypeMax16" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Codice fiscale dell'assistito</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="StatoDocumento" type="td:stringTypeMax10" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Stato del documento (fisso Approved)</xs:documentation>
+					</xs:annotation>
+				</xs:element>		
+				<xs:element name="TipologiaDocumento" type="td:stringTypeMax10" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Codice Tabella 2.18-1</xs:documentation>
+					</xs:annotation>
+				</xs:element>		
+				<xs:element name="DataRicercaDA" type="td:dataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Criterio di ricerca data DA, nel formato yyyymmddHH24MISS, si basa su DataValidazioneDocumento</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DataRicercaA" type="td:dataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Criterio di ricerca data A, nel formato yyyymmddHH24MISS, si basa su DataValidazioneDocumento</xs:documentation>
+					</xs:annotation>
+				</xs:element>	
+				<xs:element name="IdentificativoDocumento" type="td:stringTypeMax256" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Identificativo/i del/i set di metadati, codifica UUID oppure OID del/i documento/i</xs:documentation>
+					</xs:annotation>
+				</xs:element>		
+				<xs:element name="OpzioniRisposta" type="td:stringTypeMax50" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Opzioni di risposta come ResponseOptionType HL7</xs:documentation>
+					</xs:annotation>
+				</xs:element>					
+				<xs:element name="OpzioniRequest" type="td:opzioniType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Elenco campi opzionali</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

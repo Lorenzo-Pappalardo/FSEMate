@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:ricevutans="http://comunicazionemetadatiricevuta.xsd.fse.ini.finanze.it" xmlns:richiestans="http://comunicazionemetadatirichiesta.xsd.fse.ini.finanze.it" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://comunicazionemetadati.wsdl.fse.ini.finanze.it" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://comunicazionemetadati.wsdl.fse.ini.finanze.it">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import namespace="http://comunicazionemetadatirichiesta.xsd.fse.ini.finanze.it" schemaLocation="ComunicazioneMetadatiRichiesta.xsd" />
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified">
+			<xsd:import namespace="http://comunicazionemetadatiricevuta.xsd.fse.ini.finanze.it" schemaLocation="ComunicazioneMetadatiRicevuta.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ricevuta">
+		<wsdl:part name="ComunicazioneMetadatiRicevuta" element="ricevutans:ComunicazioneMetadatiRicevuta" />
+	</wsdl:message>
+	<wsdl:message name="richiesta">
+		<wsdl:part name="ComunicazioneMetadatiRichiesta" element="richiestans:ComunicazioneMetadatiRichiesta" />
+	</wsdl:message>
+	<wsdl:portType name="comunicazioneMetadatiPT">
+		<wsdl:operation name="comunicazioneMetadati">
+			<wsdl:input message="tns:richiesta" />
+			<wsdl:output message="tns:ricevuta" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="comunicazioneMetadatiBinding" type="tns:comunicazioneMetadatiPT">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="comunicazioneMetadati">
+			<soap:operation soapAction="http://comunicazionemetadati.wsdl.fse.ini.finanze.it/ComunicazioneMetadati" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="fseComunicazioneMetadati">
+		<wsdl:port name="fseComunicazioneMetadati" binding="tns:comunicazioneMetadatiBinding">
+			<soap:address location="https://fseservicetest.sanita.finanze.it/FseInsServicesWeb/services/fseComunicazioneMetadati" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://tipodaticomunicazionemetadati.xsd.fse.ini.finanze.it" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tipodaticomunicazionemetadati.xsd.fse.ini.finanze.it" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>Versione 1.2</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="stringType1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringType3">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax2">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax3">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax4">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax5">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax6">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax9">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax10">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax12">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax15">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax16">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax20">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	<xs:simpleType name="stringTypeMax30">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax50">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax64">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="stringTypeMax256">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dataType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="14"/>
+			<xs:maxLength value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="codEsitoType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="opzioniType">
+		<xs:sequence>
+			<xs:element name="chiave" type="stringTypeMax256" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Chiave del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="valore" type="stringTypeMax256" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Valore del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tipo" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tipologia del campo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="associazioneType">
+		<xs:sequence>
+			<xs:element name="associationType" type="stringTypeMax256" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Tipo dell'associazione, Tabella 2.20-1 Affinity domain</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sourceObject" type="stringTypeMax256" minOccurs="0"/>
+			<xs:element name="targetObject" type="stringTypeMax256" minOccurs="0"/>
+			<xs:element name="submissionSetStatus" type="stringTypeMax10" minOccurs="0"/>
+			<xs:element name="previousVersion" type="stringTypeMax5" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="metadatoType">
+		<xs:sequence>
+			<xs:element name="TipologiaStrutturaProdDoc" type="stringTypeMax15" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice da Tabella 2.8-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificativoOrgDoc" type="stringTypeMax64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codifica OID della regione/PA</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificativoAssistito" type="stringTypeMax16" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice fiscale dell'assistito</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TipoMime" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Per FSE text/x-cda-r2+xml o application/pdf</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="LivelloConfidenzialita" type="stringType1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.5-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="RegoleAccesso" type="stringType3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.7-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="IdentificativoRepository" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codifica OID del repository regionale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificativoDocumento" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codifica OID del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="TipologiaDocumentoAlto" type="stringTypeMax3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.3-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TipologiaDocumentoMedio" type="stringTypeMax10" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.18-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TipologiaDocumentoBasso" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.6-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RiferimentoDocumento" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codifica UUID del documento a cui si riferisce l'aggiornamento</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Associazione" type="associazioneType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Oggetto che definisce l'associazione</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdentificativoUnivocoDocumento" type="stringTypeMax50" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codifica RFC4122, univoco</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VersioneOggettoDocumento" type="stringTypeMax5" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Versione dell'oggetto documento all’interno del registry</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataValidazioneDocumento" type="dataType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data validazione del documento nel formato yyyymmddHH24MISS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RuoloAutore" type="stringType3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Tabella 5.4-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IstituzioneAutore" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contiene nome dell'organizzazione + OID del sistema di codifica + ISO + codice della struttura</xs:documentation>
+				</xs:annotation>
+			</xs:element>		
+			<xs:element name="CodiceFiscaleAutore" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Fiscale + codice fisso</xs:documentation>
+				</xs:annotation>
+			</xs:element>		
+			<xs:element name="SpecialitaAutore" type="stringTypeMax20" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Opzionale</xs:documentation>
+				</xs:annotation>
+			</xs:element>					
+			<xs:element name="TelecAutore" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Opzionale</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="HashDoc" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Hash del contenuto del documento</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="SizeDoc" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Size in bytes of the byte stream that comprises the document</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="AssettoOrganizzativo" type="stringTypeMax10" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 2.12-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="IdentificativoPaziente" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice fiscale del paziente + stringa fissa</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="TipoAttivitaClinica" type="stringTypeMax10" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Codice Tabella 3.2-1</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="LinguaDocumento" type="stringTypeMax5" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lingua del documento (it-IT)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataInizioPrestazione" type="dataType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data inizio della prestazione, nel formato yyyymmddHH24MISS</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="DataFinePrestazione" type="dataType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data fine della prestazione, nel formato yyyymmddHH24MISS</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="RappresentanteLegale" type="stringTypeMax256" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>CF legale rappresentante secondo Table 4.2.3.1.7-2</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="StatoDocumento" type="stringTypeMax10" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Stato del documento (fisso Approved)</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+			<xs:element name="RiferimentoDocPrescr" type="stringTypeMax256" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Riferimento all'id univoco della ricetta</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="ConservazioneSost" type="stringTypeMax4" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Valore CONS indica che il documento è memorizzato in archivi per la conservazione sostitutiva</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="DataSottomissione" type="dataType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Data trasmissione metadati, nel formato yyyymmddHH24MISS</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			<xs:element name="IdentificativoSottomissione" type="stringTypeMax64" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>OID della sottomissione dei metadati</xs:documentation>
+				</xs:annotation>
+			</xs:element>				
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="erroreType">
+		<xs:sequence>
+			<xs:element name="codEsito" type="codEsitoType"/>
+			<xs:element name="esito" type="stringTypeMax256"/>
+			<xs:element name="tipoErrore" type="stringTypeMax256" minOccurs="0"/>
+			<xs:element name="fonte" type="stringTypeMax256" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="elencoErroriType">
+		<xs:sequence>
+			<xs:element name="Errore" type="erroreType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cfAssistitoType">
+		<xs:sequence>
+			<xs:element name="cf" type="stringTypeMax16">
+				<xs:annotation>
+					<xs:documentation>Codice fiscale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="attivo" type="stringTypeMax1">
+				<xs:annotation>
+					<xs:documentation>Indica se il cf e' attivo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="elencoCFAssistitoType">
+		<xs:sequence>
+			<xs:element name="CFAssistito" type="cfAssistitoType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

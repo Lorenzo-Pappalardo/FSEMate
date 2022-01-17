@@ -1,0 +1,19 @@
+<jaxb:bindings
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+        jaxb:extensionBindingPrefixes="xjc"
+        version="2.1">
+    <jaxb:bindings schemaLocation="POCD_MT000040.xsd">
+        <jaxb:bindings node="//xs:complexType[@name='POCD_MT000040.ObservationMedia']/xs:attribute[@name='ID']">
+            <jaxb:property name="id2"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='POCD_MT000040.RegionOfInterest']/xs:attribute[@name='ID']">
+            <jaxb:property name="id2"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:complexType[@name='POCD_MT000040.Section']/xs:attribute[@name='ID']">
+            <jaxb:property name="id2"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>
